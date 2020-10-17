@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="ru/avalon/java/dev/j10/labs/commons/" kind="src" path="src"/>
+	<classpathentry kind="src" path="src/ru/avalon/java/dev/j10/labs/commons"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

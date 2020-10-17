@@ -1,5 +1,7 @@
 package ru.avalon.java.dev.j10.labs;
 
+import ru.avalon.java.dev.j10.common.Address;
+import ru.avalon.java.dev.j10.labs.models.Passport;
 import ru.avalon.java.dev.j10.labs.models.Person;
 
 public class Main {
@@ -7,10 +9,34 @@ public class Main {
     /*
      * FIXME(Студент): Измените определение метода так, чтобы он стал точкой входа в приложение.
      */
-    Main() {
+    public static void main(String[] args) {
 
-        Person ivanov = null;
-        Person smith = null;
+        Passport passportIvanov = new Passport(1234, 123456, "Иван", "Иванов", "Иванович",
+        		null, "1970-01-01","1986-01-01","01 отд. милиции");
+        Address addressIvanov = new Address("Россия", "Санкт-Петербург", "Цветочная", 12, 123, 123456);
+        
+        Passport passportJohn = new Passport(1243, 456908, "John", "Kennedy", "Fitzgerald",
+        		"1917-05-29", "1933-01-01", "U.S. Department of State");
+    	Address addressJohn = new Address("USA", "Brooklyn", "Cadman Plaza", 123, 25, 112);
+    	
+    	Person ivanov = new Person(passportIvanov,addressIvanov);
+        Person john = new Person(passportJohn, addressJohn);
+        
+        String fullNameIvanov = ivanov.getFullName();
+        String fullNameJohn = john.getFullName();
+        
+        String getAddressIvanov = ivanov.getAddress();
+        String getAddressJohn = john.getAddress();
+        
+        
+        
+        System.out.println(fullNameIvanov);
+        System.out.println(ivanov.getDateOfBirth());
+        System.out.println(getAddressIvanov);
+        System.out.println();
+        System.out.println(fullNameJohn);
+        System.out.println(john.getDateOfBirth());
+        System.out.println(getAddressJohn);
 
         /*
          * TODO(Студент): Создайте экземпляры класса 'Person'
