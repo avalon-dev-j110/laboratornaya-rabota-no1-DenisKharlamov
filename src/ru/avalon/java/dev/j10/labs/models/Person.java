@@ -1,5 +1,7 @@
 package ru.avalon.java.dev.j10.labs.models;
 
+import ru.avalon.java.dev.j10.common.Address;
+
 /**
  * Представление о человеке.
  * <p>
@@ -11,8 +13,18 @@ package ru.avalon.java.dev.j10.labs.models;
  * </ol>
  */
 public class Person {
+	
+	Passport passport;
+	Address address;
+	
+	
 
-    /**
+    public Person(Passport passport, Address address) {
+		this.passport = passport;
+		this.address = address;
+	}
+
+	/**
      * Возврвщает полное имя человека.
      * <p>
      * Если у человека есть Имя, Фамилия и Отчество, то
@@ -33,7 +45,14 @@ public class Person {
         /*
          * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
          */
-        return null;
+    	String str = "";
+        if (passport.getPatronymic() != null) str = passport.getSurname() + " "
+         + passport.getName() + " " + passport.getPatronymic();
+        else if (passport.getSecondName() != null) str = passport.getName() + " "
+         + (passport.getSecondName()).substring(0, 1) + "." + " " + passport.getSurname();
+        else if ((passport.getPatronymic() == null) && (passport.getSecondName() == null))
+        str = passport.getName() + " " + passport.getSecondName();
+        return str;
     }
 
     /**
@@ -48,6 +67,12 @@ public class Person {
         /*
          * TODO(Студент): Закончить определение метода 'getAddress()' класса 'Person'
          */
-        return null;
+        return "Residence address:" + "\n" + "Country: " + address.getCountry() + " " + "City: " + address.getCity() + " "
+        		+ "Street: " + address.getStreet() + " " + "House number: " + address.getHouseNumber() + " "
+        		+ "Apartment number: " + address.getApartmentNumber() + " " + "Index: " + address.getIndex();
+    }
+    
+    public String getDateOfBirth() {
+    	return "Date of birth(yyyy-mm-dd): " + passport.getBirthday();
     }
 }
